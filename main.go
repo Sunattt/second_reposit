@@ -115,16 +115,16 @@ func main() {
 		case nums == 2 && restBill > 70:
 			fmt.Printf("%s можешь дать мне в долг %v сомон\n",cl1.Name, restBill-70 )
 			fmt.Printf("Да конечно %s, я тебе отправлю на счет.\n",cl2.Name)
-			//перевод деньг с cl1 на cl2
+			//перевод денег с cl1 на cl2
 			cl1.AcceptTo(&cl2, float64(restBill-70))
 			if cl1.Bank == cl2.Bank{
-				//елси имя баннков совподает то коммисии нет 
+				//если имя банков совпадает то комиссии нет 
 				cl1.CheckBalance()
 				cl2.CheckBalance()
 
 				fmt.Printf("%+v\n",cl1 ); fmt.Printf("%+v\n",cl2 )
 			}else{
-				//взымается коммиссия за перевод
+				//взимается комиссия за перевод
 				cl1.Commission()
 				cl1.CheckBalance()
 				cl2.CheckBalance()
@@ -136,11 +136,11 @@ func main() {
 		case nums == 3 && restBill > 70:
 			fmt.Printf("%s можешь дать мне в долг %v\n",cl2.Name, restBill-70 )
 			fmt.Printf("Да конечно %s, я тебе отправлю на счет.\n",cl1.Name)
-			//перевод деньг с cl1 на cl2
+			//перевод денег с cl1 на cl2
 			cl2.TransferTo(&cl1, float64(restBill-70))
 			
 			if cl1.Bank == cl2.Bank{
-				//елси имя баннков совподает то коммисии нет 
+				//если имя банков совпадает то комиссии нет 
 
 				cl1.CheckBalance()
 				cl2.CheckBalance()
@@ -148,7 +148,7 @@ func main() {
 				fmt.Printf("%+v\n",cl1 )
 				fmt.Printf("%+v\n",cl1 )
 			}else{
-				//взымается коммиссия за перевод
+				//взимается комиссия за перевод
 				cl2.Commission()
 
 				cl1.CheckBalance()
